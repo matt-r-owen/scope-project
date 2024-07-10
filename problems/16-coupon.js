@@ -15,10 +15,24 @@ console.log(twentyPercent([10, 20, 30])); // [ 8, 16, 24 ]
 
 ***********************************************************************/
 function coupon(discount) {
-  // Your code here
+  return (prices) => {
+    prices.forEach((price, i) => {
+      prices[i] = price - (price * discount);
+    });
+
+    return prices;
+  };
 }
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+
+
+let tenPercent = coupon(0.1);
+console.log(tenPercent([10, 20, 30])); // [ 9, 18, 27 ]
+
+let twentyPercent = coupon(0.2);
+console.log(twentyPercent([10, 20, 30])); // [ 8, 16, 24 ]
+
+/**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = coupon;
 } catch (e) {

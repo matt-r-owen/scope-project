@@ -11,10 +11,19 @@ arrowRestSum(0); // => 0
 ***********************************************************************/
 
 const arrowRestSum = (...otherNums) => {
-  // Your code here
+  let sum = 0;
+
+  otherNums.forEach(num => sum += num);
+
+  console.log(sum);
+  return sum;
 };
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+arrowRestSum(3,5,6); // => 14
+arrowRestSum(1, 2, 3, 4, 5, 6, 7, 8, 9); // => 45
+arrowRestSum(0); // => 0
+
+/**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = arrowRestSum;
 } catch (e) {

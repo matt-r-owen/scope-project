@@ -4,7 +4,7 @@ and returns a function.
 
 The returned function will also accept any number of parameters and will
 return a string including all of the parameters of smoothieMachine as well
-as the returned function's parameters. Look at the examples for a guide of 
+as the returned function's parameters. Look at the examples for a guide of
 how your return should be formatted!
 
 See below for examples:
@@ -24,10 +24,40 @@ console.log(smoothie2("pineapple"));
 ***********************************************************************/
 
 const smoothieMachine = (...ingredients) => {
-  // Your code here
+  let statement = "I'm having a smoothie with ";
+  let invokeCount = 0;
+
+  return (...moreIngredients) => {
+    invokeCount++;
+
+    if (ingredients.length === 0) {
+      if (invokeCount === 1) {
+        return statement += moreIngredients.join(' and ');
+      } else if (invokeCount > 1) {
+        return statement += ' and ' + moreIngredients.join(' and ');
+      }
+    }
+
+    return statement += ingredients.join(' and ') + ' and ' + moreIngredients.join(' and ');
+  };
 };
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+
+
+let smoothie1 = smoothieMachine();
+
+console.log(smoothie1("milk"));
+// prints "I'm having a smoothie with milk"
+console.log(smoothie1("kale", "spinach"));
+// prints "I'm having a smoothie with milk and kale and spinach"
+console.log(smoothie1("honey", "pears", "berries"));
+// prints "I'm having a smoothie with milk and kale and spinach and honey and pears and berries"
+
+let smoothie2 = smoothieMachine("apples", "bananas", "berries");
+console.log(smoothie2("pineapple"));
+// prints "I'm having a smoothie with apples and bananas and berries and pineapple"
+
+/**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = smoothieMachine;
 } catch (e) {

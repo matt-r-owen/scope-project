@@ -23,10 +23,30 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 ***********************************************************************/
 
 function lazyAdder(firstNum) {
-  // Your code here
+  /*
+  return (secondNum) => {
+    return (thirdNum) => {
+      return firstNum + secondNum + thirdNum;
+    };
+  };
+  */
+
+  return secondNum => thirdNum => firstNum + secondNum + thirdNum;
 }
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+
+
+let firstAdd = lazyAdder(1);
+let secondAdd = firstAdd(2);
+let sum = secondAdd(3);
+console.log(sum); // prints 6
+
+let func1 = lazyAdder(10);
+let func2 = func1(20);
+let total = func2(3);
+console.log(total); // prints 33
+
+/**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = lazyAdder;
 } catch (e) {

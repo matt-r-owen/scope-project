@@ -9,9 +9,21 @@ mirrorArray(['a', 'b', 'c', 'd']); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a
 ***********************************************************************/
 
 const mirrorArray = (array) => {
-  // Your code here
+  for (let i = array.length - 1; i >= 0; i--) {
+    let number = array[i];
+    array.push(number);
+  }
+
+  console.log(array);
+  return array;
 };
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+
+
+
+mirrorArray([1,2,3]); // => [ 1, 2, 3, 3, 2, 1 ]
+mirrorArray(['a', 'b', 'c', 'd']); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a' ]
+
+/**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = mirrorArray;
 } catch (e) {

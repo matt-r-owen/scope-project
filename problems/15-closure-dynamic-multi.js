@@ -19,10 +19,26 @@ multiplyByFive(5); // returns 25
 ***********************************************************************/
 
 function dynamicMultiply(num) {
-  // Your code here
+  return (multiplier) => {
+    return num * multiplier;
+  };
 }
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+
+
+const doubler = dynamicMultiply(2); // returns a functions
+doubler(5); // returns 10
+console.log(doubler(5));
+
+const tripler = dynamicMultiply(3);
+tripler(5); // returns 15
+console.log(tripler(5));
+
+const multiplyByFive = dynamicMultiply(5);
+multiplyByFive(5); // returns 25
+console.log(multiplyByFive(5));
+
+/**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = dynamicMultiply;
 } catch (e) {
